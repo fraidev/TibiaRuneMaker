@@ -1,6 +1,12 @@
-1 - Run this command from an administrative shell to install the "software" dependencias (Visual Studio, Python) on windows:
+1 - Setup:
+
+Windows:
 ```
 npm install --global --production windows-build-tools.
+```
+Linux:
+```
+sudo apt-get install libxtst-dev libpng++-dev.
 ```
 2 - Install node-gyp globally:
 
@@ -13,7 +19,12 @@ npm install -g node-gyp
 npm install robotjs
 ```
 
-4 - Run Bot:
+4 - Install nodejs dependencies:
+```
+node TibiaRuneMaker.js
+```
+
+5 - Run Bot:
 ```
 node TibiaRuneMaker.js
 ```
