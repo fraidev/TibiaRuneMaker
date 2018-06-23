@@ -15,9 +15,13 @@ function makeRune(){
 };
 function eatFood(){
 	robot.keyTap("f2");
+	robot.setKeyboardDelay(250);
 	robot.keyTap("f2");
+	robot.setKeyboardDelay(250);
 	robot.keyTap("f2");
+	robot.setKeyboardDelay(250);
 	robot.keyTap("f2");
+	robot.setKeyboardDelay(250);
 	robot.keyTap("f2");
 };
 function moveAfk(){
