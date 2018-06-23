@@ -2,7 +2,7 @@ var robot = require("robotjs");
 var readline = require('readline-sync');
 var runeMagic = require('./RunesMagic');
 var actions = require('./Actions');
-var profit = require('./Profit');
+var profit = require('./ProfitCheck');
 
 var sd = runeMagic.createRuneOrMagic("SD", 985, 108);
 var gfb = runeMagic.createRuneOrMagic("GFB", 530, 45);
