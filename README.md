@@ -28,3 +28,9 @@ node TibiaRuneMaker.js
 ```
 node TibiaRuneMaker.js
 ```
+
+Tibia:
+```
+Put on F1 Hotkey your Magic or Rune.
+Put on F2 Hotkey your Food.
+```
