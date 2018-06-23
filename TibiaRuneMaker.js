@@ -4,9 +4,9 @@ var runeMagic = require('./RunesMagic');
 var actions = require('./Actions');
 var profit = require('./ProfitCheck');
 
-var sd = runeMagic.createRuneOrMagic("SD", 985, 108, 4);
-var gfb = runeMagic.createRuneOrMagic("GFB", 530, 45, 3);
-var ava = runeMagic.createRuneOrMagic("AVA", 530, 45, 3);
+var sd = runeMagic.createRuneOrMagic("SD", 985, 108, 3);
+var gfb = runeMagic.createRuneOrMagic("GFB", 530, 45, 4);
+var ava = runeMagic.createRuneOrMagic("AVA", 530, 45, 4);
 var exura = runeMagic.createRuneOrMagic("Exura", 20, 0);
 var exuraGran = runeMagic.createRuneOrMagic("AVA", 70, 0);
 var exuraVita = runeMagic.createRuneOrMagic("Exura Vita", 160, 0);
