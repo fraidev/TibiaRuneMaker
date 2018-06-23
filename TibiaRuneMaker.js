@@ -4,9 +4,9 @@ var runeMagic = require('./RunesMagic');
 var actions = require('./Actions');
 var profit = require('./ProfitCheck');
 
-var sd = runeMagic.createRuneOrMagic("SD", 985, 108);
-var gfb = runeMagic.createRuneOrMagic("GFB", 530, 45);
-var ava = runeMagic.createRuneOrMagic("AVA", 530, 45);
+var sd = runeMagic.createRuneOrMagic("SD", 985, 108, 4);
+var gfb = runeMagic.createRuneOrMagic("GFB", 530, 45, 3);
+var ava = runeMagic.createRuneOrMagic("AVA", 530, 45, 3);
 var exura = runeMagic.createRuneOrMagic("Exura", 20, 0);
 var exuraGran = runeMagic.createRuneOrMagic("AVA", 70, 0);
 var exuraVita = runeMagic.createRuneOrMagic("Exura Vita", 160, 0);
@@ -75,6 +75,6 @@ console.log("Total time per milliseconds: " + usable.timeSec);
 
 while(true){
 	actions.allActions();
-	profit.profitEvent(usable.value);
+	profit.profitEvent(usable.valueQtd);
 	robot.setKeyboardDelay(usable.timeMS);
 }
