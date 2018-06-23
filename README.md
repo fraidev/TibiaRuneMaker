@@ -1,10 +1,10 @@
 ### 1 - Setup:
 
-######Windows:
+###### Windows:
 ```
 npm install --global --production windows-build-tools.
 ```
-######Linux:
+###### Linux:
 ```
 sudo apt-get install libxtst-dev libpng++-dev.
 ```
