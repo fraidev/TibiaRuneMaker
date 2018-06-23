@@ -1,0 +1,24 @@
+{
+  "name": "tibiarunemaker",
+  "version": "1.0.0",
+  "description": "1 - Run this command from an administrative shell to install the \"software\" dependencias (Visual Studio, Python) on windows:\r ```\r npm install --global --production windows-build-tools.\r ```\r 2 - Install node-gyp globally:",
+  "main": "TibiaRuneMaker.js",
+  "dependencies": {
+    "readline-sync": "^1.4.9",
+    "robotjs": "^0.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fraifelipe/TibiaRuneMaker.git"
+  },
+  "author": "Frai Felipe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fraifelipe/TibiaRuneMaker/issues"
+  },
+  "homepage": "https://github.com/fraifelipe/TibiaRuneMaker#readme"
+}
