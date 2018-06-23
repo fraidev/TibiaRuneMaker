@@ -1,3 +1,6 @@
+# Tibia Rune Maker
+A bot for mages treining or to make runes.
+
 ### 1 - Setup:
 
 ###### Windows:
@@ -34,3 +37,4 @@ node TibiaRuneMaker.js
 Put on F1 Hotkey your Magic or Rune.
 Put on F2 Hotkey your Food.
 ```
+A
