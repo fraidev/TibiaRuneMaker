@@ -11,15 +11,16 @@ var usable;
 var wantAT;
 
 function makeRune(){
-	robot.setKeyboardDelay(985000);
 	robot.keyTap("f1");
 };
 function eatFood(){
-	robot.setKeyboardDelay(60000);
+	robot.keyTap("f2");
+	robot.keyTap("f2");
+	robot.keyTap("f2");
+	robot.keyTap("f2");
 	robot.keyTap("f2");
 };
 function moveAfk(){
-	robot.setKeyboardDelay(20000);
 	robot.keyTap("up","control");
 	robot.keyTap("left","control");
 	robot.keyTap("down","control");
@@ -82,12 +83,13 @@ if (wantAltTabQuestion == "y"){
 	consolel.log("Alt + Tab Diseble");
 }
 
-
 if (wantAT==true){
 	altTab();
 }
+
 while(true){
 	eatFood();
 	makeRune();
 	moveAfk();	
+	robot.setKeyboardDelay(usable);
 }
