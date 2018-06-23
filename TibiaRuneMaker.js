@@ -1,48 +1,27 @@
 var robot = require("robotjs");
 var readline = require('readline-sync');
+var runeMagic = require('./RunesMagic');
+var actions = require('./Actions');
+var profit = require('./Profit');
 
-var sd = 985000;
-var gfbAndAva = 530000;
-var exura = 20;
-var exuraGran = 70;
-var exuraVita = 160;
-var utanaVid = 440;
-var usable;
-var wantAT;
+var sd = runeMagic.createRuneOrMagic("SD", 985, 108);
+var gfb = runeMagic.createRuneOrMagic("GFB", 530, 45);
+var ava = runeMagic.createRuneOrMagic("AVA", 530, 45);
+var exura = runeMagic.createRuneOrMagic("Exura", 20, 0);
+var exuraGran = runeMagic.createRuneOrMagic("AVA", 70, 0);
+var exuraVita = runeMagic.createRuneOrMagic("Exura Vita", 160, 0);
+var utanaVid  = runeMagic.createRuneOrMagic("Utana Vid", 440, 0);
 
-function makeRune(){
-	robot.keyTap("f1");
-};
-function eatFood(){
-	robot.keyTap("f2");
-	robot.setKeyboardDelay(250);
-	robot.keyTap("f2");
-	robot.setKeyboardDelay(250);
-	robot.keyTap("f2");
-	robot.setKeyboardDelay(250);
-	robot.keyTap("f2");
-	robot.setKeyboardDelay(250);
-	robot.keyTap("f2");
-};
-function moveAfk(){
-	robot.keyTap("up","control");
-	robot.keyTap("left","control");
-	robot.keyTap("down","control");
-	robot.keyTap("right","control");
-};
-function altTab(){
-	robot.keyTap("tab", "alt");
-};
-
+var usable, wantAT;
 var questions = [
-	"Which rune/magic do you want? sd, ava, gfb, exura, exuragran, exuravita or exuragran\n",
-	"Do you have promotion? y or n\n",
-	"Do you have double mana regeneration? y or n\n",
-	"Do you want do 'alt + tab' to start? y or n\n"
+	"Which rune/magic do you want? [SD, AVA, GFB, EXURA, EXURAGRAN, EXURAVITA, EXURAGRAN ou UTANAVID]\n",
+	"Do you have promotion? [Y or N]\n",
+	"Do you have double mana regeneration? [Y or N]\n",
+	"Do you want do 'alt + tab' to start? [Y or N]\n"
 ];
 
-var runeMagic = readline.question(questions[0]);
-switch(runeMagic) {
+var runeMagicQuestion = readline.question(questions[0]);
+switch(runeMagicQuestion) {
     case 'sd':
 		usable = sd;
         break;
@@ -61,22 +40,23 @@ switch(runeMagic) {
 	case 'exuravita':
 		usable = exuraVita;
 	break;
+	case 'utanavid':
+		usable = utanaVid;
+	break;
     default:
-		usable = exuraVita;
+		usable = utanaVid;
 }
-console.log(runeMagic + " Mana of Rune: " + usable);
+console.log("Mana of Rune: " + usable.name);
 
 var promotionQuestion = readline.question(questions[1]);
 if (promotionQuestion == "n"){
-	usable = usable*12;
+	usable.timeSec = usable.mana*(1.5);
 }
-console.log(promotionQuestion + " Total time per milliseconds: " + usable);
-
 var doubleManaQuestion = readline.question(questions[2]);
 if (doubleManaQuestion == "y"){
-	usable = usable/2;
+	usable.timeSec = usable.mana/2;
 }
-console.log(doubleManaQuestion + " Mana per seconds: " + usable);
+console.log("Total time per seconds: " + usable.timeSec);
 
 var wantAltTabQuestion = readline.question(questions[3]);
 if (wantAltTabQuestion == "y"){
@@ -84,16 +64,17 @@ if (wantAltTabQuestion == "y"){
 	console.log("Alt + Tab Enable");
 }else if (wantAltTabQuestion == "n"){
 	wantAT = false;
-	consolel.log("Alt + Tab Diseble");
+	console.log("Alt + Tab Diseble");
+}
+if (wantAT==true){
+	actions.altTab();
 }
 
-if (wantAT==true){
-	altTab();
-}
+usable.timeMS = usable.timeSec*1000;
+console.log("Total time per milliseconds: " + usable.timeSec);
 
 while(true){
-	eatFood();
-	makeRune();
-	moveAfk();	
-	robot.setKeyboardDelay(usable);
+	actions.allActions();
+	profit.profitEvent(usable.value);
+	robot.setKeyboardDelay(usable.timeMS);
 }
