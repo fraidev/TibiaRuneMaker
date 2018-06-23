@@ -1,11 +1,19 @@
-Run this command from an administrative shell to install the "software" dependencias (Visual Studio, Python) on windows:
-npm install --global --production windows-build-tools
+1 - Run this command from an administrative shell to install the "software" dependencias (Visual Studio, Python) on windows:
+```
+npm install --global --production windows-build-tools.
+```
+2 - Install node-gyp globally:
 
-Install node-gyp globally:
+```
 npm install -g node-gyp
+```
 
-Then try installing the package again:
+3 - Then try installing the package again:
+```
 npm install robotjs
+```
 
-Run Bot:
+4 - Run Bot:
+```
 node TibiaRuneMaker.js
+```
